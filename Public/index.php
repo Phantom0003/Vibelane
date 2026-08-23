@@ -1,12 +1,25 @@
 <?php
 
-include_once '../app/Views/partials/header.php';
+require_once __DIR__ .
+    '/../Config/DBConnection.php';
 
-include_once '../app/Views/partials/hero.php';
+// Get the requested path, strip query string and trailing slash
+$url = isset($_GET['url']) ? trim($_GET['url'], '/') : '';
 
-include_once '../app/Views/partials/production.php';
+// Define routes here — map a URL path to a view/action
+switch ($url) {
+    case '':
+        include_once __DIR__ . '/../app/Views/home.php';
+        break;
+    case 'about':
+        include_once __DIR__ . '/../app/Views/about.php';
+        break;
+    case 'login':
+        include_once __DIR__ . '/../app/Views/login.php';
+        break;
 
-include_once '../app/Views/partials/whychooseus.php';
-
-include_once '../app/Views/partials/footer.php';
-
+    default:
+        http_response_code(404);
+        echo "404 - Page not found";
+        break;
+}

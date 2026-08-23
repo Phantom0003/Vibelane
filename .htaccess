@@ -1,2 +1,14 @@
-#load index.html instead
-DirectoryIndex public/Views/partials production.php;
+RewriteEngine On
+RewriteBase /Vibelane/Public/
+
+# Don't rewrite if it's already index.php
+RewriteCond %{REQUEST_URI} ^/Vibelane/Public/index\.php$
+RewriteRule ^ - [L]
+
+# Serve real files/folders directly
+RewriteCond %{REQUEST_FILENAME} -f [OR]
+RewriteCond %{REQUEST_FILENAME} -d
+RewriteRule ^ - [L]
+
+# Everything else -> index.php
+RewriteRule ^(.*)$ index.php?url=$1 [QSA,L]
