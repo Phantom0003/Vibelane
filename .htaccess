@@ -1,0 +1,2 @@
+#load index.html instead
+DirectoryIndex public/Views/partials production.php;
