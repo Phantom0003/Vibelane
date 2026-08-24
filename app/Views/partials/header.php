@@ -31,10 +31,10 @@
             <div class="collapse navbar-collapse" id="navbarsVibelane">
                 <ul class="custom-navbar-nav navbar-nav ms-auto mb-2 mb-md-0">
                     <li class="nav-item active">
-                        <a class="nav-link" href="index.html">Home</a>
+                        <a class="nav-link" href="index.php">Home</a>
                     </li>
-                    <li><a class="nav-link" href="shop.html">Shop</a></li>
-                    <li><a class="nav-link" href="about.html">About us</a></li>
+                    <li><a class="nav-link" href="index.php?url=shop">Shop</a></li>
+                    <li><a class="nav-link" href="index.php?url=about">About us</a></li>
                     <li><a class="nav-link" href="services.html">Services</a></li>
                     <li><a class="nav-link" href="blog.html">Blog</a></li>
                     <li><a class="nav-link" href="contact.html">Contact us</a></li>
@@ -42,12 +42,12 @@
 
                 <!-- Updated Buttons Section -->
                 <ul class="custom-navbar-cta navbar-nav mb-2 mb-md-0 ms-5 align-items-center">
-                    <li class="me-3"><a class="nav-link" href="profile.html"><img src="../public/image/user.svg"
+                    <li class="me-3"><a class="nav-link" href="profile.html"><img src="Public/image/user.svg"
                                 alt="User Profile"></a></li>
-                    <li class="me-3"><a class="nav-link" href="cart.html"><img src="../public/image/cart.svg"
+                    <li class="me-3"><a class="nav-link" href="cart.html"><img src="Public/image/cart.svg"
                                 alt="Cart"></a></li>
-                    <li class="me-2"><a class="btn btn-outline-light" href="/../../Views/login.php">Login</a></li>
-                    <li><a class="btn btn-primary" href="signup.html">Sign up</a></li>
+                    <li class="me-2"><a class="btn btn-outline-light" href="index.php?url=login">Login</a></li>
+                    <li><a class="btn btn-primary" href="index.php?url=signup">Sign up</a></li>
                 </ul>
             </div>
         </div>

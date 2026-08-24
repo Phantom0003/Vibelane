@@ -1,0 +1,294 @@
+/*
+* Vibelane - Shop Page Stylesheet
+*/
+@import url("https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800&display=swap");
+
+:root {
+  --primary-colour: #6200B3;
+  --secondary-colour: #8B2BE2;
+  --gradient: #C299FA;
+  --background: #14001F;
+  --card-bg: #210330;
+  --card-border: #380a52;
+}
+
+/* ==========================================
+   Base & Typography
+   ========================================== */
+body {
+  overflow-x: hidden;
+  position: relative;
+  font-family: "Inter", sans-serif;
+  font-weight: 400;
+  line-height: 28px;
+  color: #ffffff;
+  font-size: 14px;
+  background-color: var(--background);
+}
+
+a {
+  text-decoration: none;
+  transition: all 0.3s ease;
+  color: var(--primary-colour);
+}
+
+a:hover {
+  color: var(--secondary-colour);
+}
+
+
+/* ==========================================
+   Buttons
+   ========================================== */
+.btn {
+  font-weight: 600;
+  padding: 12px 30px;
+  border-radius: 30px;
+  color: #ffffff;
+  background: #2f2f2f;
+  border-color: #2f2f2f;
+  transition: all 0.3s ease;
+}
+
+.btn:hover {
+  color: #ffffff;
+  background: #222222;
+  border-color: #222222;
+}
+
+.btn:active,
+.btn:focus {
+  outline: none !important;
+  box-shadow: none;
+}
+
+.btn.btn-primary {
+  background: var(--primary-colour);
+  border-color: var(--primary-colour);
+}
+
+.btn.btn-primary:hover {
+  background: var(--secondary-colour);
+  border-color: var(--secondary-colour);
+  box-shadow: 0 8px 20px rgba(139, 43, 226, 0.35);
+  transform: translateY(-2px);
+}
+
+.btn.btn-secondary {
+  color: #ffffff;
+  background: var(--secondary-colour);
+  border-color: var(--secondary-colour);
+}
+
+.btn.btn-secondary:hover {
+  background: var(--primary-colour);
+  border-color: var(--primary-colour);
+}
+
+.btn-sm {
+  padding: 8px 20px !important;
+  font-size: 13px !important;
+}
+
+/* ==========================================
+   Shop Hero & Filters
+   ========================================== */
+.shop-hero h1 {
+  font-size: 36px;
+  letter-spacing: -0.5px;
+}
+
+.shop-filters .btn-filter {
+  background: var(--card-bg);
+  border: 1px solid var(--card-border);
+  color: rgba(255, 255, 255, 0.7);
+  padding: 8px 20px;
+  font-size: 13px;
+  border-radius: 20px;
+}
+
+.shop-filters .btn-filter:hover,
+.shop-filters .btn-filter.active {
+  background: var(--primary-colour);
+  border-color: var(--primary-colour);
+  color: #ffffff;
+  box-shadow: 0 4px 15px rgba(98, 0, 179, 0.4);
+}
+
+.search-box .form-control {
+  background-color: var(--card-bg) !important;
+  border: 1px solid var(--card-border);
+  color: #ffffff !important;
+  border-radius: 30px 0 0 30px;
+  padding-left: 20px;
+}
+
+.search-box .form-control:focus {
+  outline: none;
+  border-color: var(--secondary-colour);
+  box-shadow: none !important;
+}
+
+.search-box .btn {
+  border-radius: 0 30px 30px 0;
+  padding: 0 20px;
+}
+
+/* ==========================================
+   Product Card Component
+   ========================================== */
+.product-card {
+  background: var(--card-bg);
+  border: 1px solid var(--card-border);
+  border-radius: 20px;
+  overflow: hidden;
+  transition: all 0.3s ease;
+  height: 100%;
+  display: flex;
+  flex-direction: column;
+}
+
+.product-card:hover {
+  border-color: rgba(139, 43, 226, 0.6);
+  box-shadow: 0 12px 30px rgba(98, 0, 179, 0.3);
+  transform: translateY(-5px);
+}
+
+.product-card .product-img-wrap {
+  position: relative;
+  background: rgba(0, 0, 0, 0.2);
+  padding: 30px 20px;
+  text-align: center;
+  overflow: hidden;
+}
+
+.product-card .product-img-wrap img {
+  max-height: 200px;
+  object-fit: contain;
+  transition: transform 0.4s ease;
+}
+
+.product-card:hover .product-img-wrap img {
+  transform: scale(1.08);
+}
+
+/* Badge Tags */
+.product-card .badge-tag {
+  position: absolute;
+  top: 15px;
+  left: 15px;
+  background: var(--primary-colour);
+  color: #ffffff;
+  font-size: 10px;
+  font-weight: 700;
+  padding: 4px 10px;
+  border-radius: 12px;
+  letter-spacing: 0.5px;
+  z-index: 2;
+}
+
+.product-card .badge-tag.sale {
+  background: #d92550;
+}
+
+/* Add to Cart Floating Button */
+.product-card .btn-add-cart {
+  position: absolute;
+  bottom: -45px;
+  right: 15px;
+  width: 42px;
+  height: 42px;
+  border-radius: 50%;
+  background: var(--secondary-colour);
+  border: none;
+  color: #ffffff;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  box-shadow: 0 4px 12px rgba(0, 0, 0, 0.4);
+  transition: all 0.3s ease;
+  cursor: pointer;
+}
+
+.product-card:hover .btn-add-cart {
+  bottom: 15px;
+}
+
+.product-card .btn-add-cart:hover {
+  background: var(--primary-colour);
+  transform: scale(1.1);
+}
+
+/* Product Info */
+.product-card .product-info {
+  padding: 20px;
+  display: flex;
+  flex-direction: column;
+  flex-grow: 1;
+  justify-content: space-between;
+}
+
+.product-card .product-title {
+  font-size: 15px;
+  font-weight: 600;
+  margin-bottom: 8px;
+}
+
+.product-card .product-title a {
+  color: #ffffff;
+}
+
+.product-card .product-title a:hover {
+  color: var(--gradient);
+}
+
+.product-card .product-price {
+  font-weight: 700;
+  font-size: 16px;
+  color: var(--gradient);
+}
+
+.product-card .product-price-old {
+  font-size: 13px;
+  color: rgba(255, 255, 255, 0.4);
+  text-decoration: line-through;
+}
+
+/* ==========================================
+   Custom Pagination
+   ========================================== */
+.custom-pagination {
+  display: flex;
+  gap: 8px;
+  list-style: none;
+  padding: 0;
+}
+
+.custom-pagination li a,
+.custom-pagination li span {
+  width: 40px;
+  height: 40px;
+  border-radius: 50%;
+  background: var(--card-bg);
+  border: 1px solid var(--card-border);
+  color: #ffffff;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  font-weight: 600;
+  font-size: 13px;
+  transition: all 0.3s ease;
+}
+
+.custom-pagination li.active span,
+.custom-pagination li a:hover {
+  background: var(--primary-colour);
+  border-color: var(--primary-colour);
+  box-shadow: 0 4px 12px rgba(98, 0, 179, 0.4);
+}
+
+.custom-pagination li.disabled span {
+  opacity: 0.3;
+  cursor: not-allowed;
+}
+

@@ -26,6 +26,8 @@ SET time_zone = "+00:00";
 --
 -- Table structure for table `customers`
 --
+--  CREATE DATABASE IF NOT EXISTS 'vibe_lane_db';
+
 
 CREATE TABLE `customers` (
   `customerid` int(11) NOT NULL,

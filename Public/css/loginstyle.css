@@ -1,0 +1,203 @@
+/*
+* Vibelane - Login Page Stylesheet
+*/
+@import url("https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800&display=swap");
+
+:root {
+  --primary-colour: #6200B3;
+  --secondary-colour: #8B2BE2;
+  --gradient: #C299FA;
+  --background: #14001F;
+  --card-bg: #210330;
+  --card-border: #380a52;
+}
+
+/* ==========================================
+   Base & Typography
+   ========================================== */
+body {
+  overflow-x: hidden;
+  position: relative;
+  font-family: "Inter", sans-serif;
+  font-weight: 400;
+  line-height: 28px;
+  color: #ffffff;
+  font-size: 14px;
+  background-color: var(--background);
+}
+
+a {
+  text-decoration: none;
+  transition: all 0.3s ease;
+  color: var(--primary-colour);
+}
+
+a:hover {
+  color: var(--secondary-colour);
+}
+
+
+/* ==========================================
+   Buttons
+   ========================================== */
+.btn {
+  font-weight: 600;
+  padding: 12px 30px;
+  border-radius: 30px;
+  color: #ffffff;
+  background: #2f2f2f;
+  border-color: #2f2f2f;
+  transition: all 0.3s ease;
+}
+
+.btn:hover {
+  color: #ffffff;
+  background: #222222;
+  border-color: #222222;
+}
+
+.btn:active,
+.btn:focus {
+  outline: none !important;
+  box-shadow: none;
+}
+
+.btn.btn-primary {
+  background: var(--primary-colour);
+  border-color: var(--primary-colour);
+}
+
+.btn.btn-primary:hover {
+  background: var(--secondary-colour);
+  border-color: var(--secondary-colour);
+  box-shadow: 0 8px 20px rgba(139, 43, 226, 0.35);
+  transform: translateY(-2px);
+}
+
+.btn.btn-secondary {
+  color: #ffffff;
+  background: var(--secondary-colour);
+  border-color: var(--secondary-colour);
+}
+
+.btn.btn-secondary:hover {
+  background: var(--primary-colour);
+  border-color: var(--primary-colour);
+}
+
+.btn-sm {
+  padding: 8px 20px !important;
+  font-size: 13px !important;
+}
+
+/* ==========================================
+   Login Card & Form Inputs
+   ========================================== */
+.login-card {
+  background: var(--card-bg);
+  border: 1px solid var(--card-border);
+  border-radius: 24px;
+  box-shadow: 0 15px 35px rgba(0, 0, 0, 0.5);
+  transition: transform 0.3s ease, box-shadow 0.3s ease;
+}
+
+.login-card:hover {
+  border-color: rgba(139, 43, 226, 0.5);
+  box-shadow: 0 20px 40px rgba(98, 0, 179, 0.25);
+}
+
+.login-card .section-title {
+  color: #ffffff;
+  letter-spacing: -0.5px;
+}
+
+.login-card label {
+  font-size: 11px;
+  letter-spacing: 0.8px;
+  text-transform: uppercase;
+  color: rgba(255, 255, 255, 0.6);
+  margin-bottom: 6px;
+}
+
+.login-card .form-control {
+  height: 50px;
+  border-radius: 30px;
+  font-family: "Inter", sans-serif;
+  background-color: var(--background) !important;
+  color: #ffffff !important;
+  border: 1px solid var(--card-border);
+  padding: 12px 20px;
+  transition: all 0.3s ease;
+}
+
+.login-card .form-control:focus {
+  outline: none;
+  border-color: var(--secondary-colour);
+  box-shadow: 0 0 12px rgba(139, 43, 226, 0.35) !important;
+}
+
+.login-card .form-control::placeholder {
+  color: rgba(255, 255, 255, 0.4);
+  font-size: 14px;
+}
+
+/* Custom Checkbox */
+.login-card .form-check-input {
+  background-color: var(--background);
+  border: 1px solid var(--card-border);
+  width: 18px;
+  height: 18px;
+  cursor: pointer;
+  border-radius: 4px;
+}
+
+.login-card .form-check-input:checked {
+  background-color: var(--primary-colour);
+  border-color: var(--primary-colour);
+}
+
+.login-card .form-check-input:focus {
+  box-shadow: 0 0 8px rgba(139, 43, 226, 0.4);
+}
+
+/* Utility Links */
+.login-card .forgot-password {
+  color: var(--gradient);
+  font-size: 12px;
+}
+
+.login-card .forgot-password:hover {
+  color: #ffffff;
+  text-decoration: underline !important;
+}
+
+.login-card a {
+  color: var(--gradient);
+}
+
+.login-card a:hover {
+  color: #ffffff;
+}
+
+/* ==========================================
+   Footer Section
+   ========================================== */
+.footer-section {
+  padding: 30px 0;
+  background: var(--background);
+  border-top: 1px solid var(--card-border);
+}
+/* ==========================================
+   Back Button Styling
+   ========================================== */
+.login-card .btn-back {
+  color: rgba(255, 255, 255, 0.6);
+  font-size: 13px;
+  font-weight: 500;
+  transition: all 0.3s ease;
+}
+
+.login-card .btn-back:hover {
+  color: var(--gradient);
+  transform: translateX(-4px);
+}
