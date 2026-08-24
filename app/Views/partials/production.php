@@ -1,6 +1,6 @@
 
     <?php
-    require_once __DIR__ . '/../../Controllers/ProductController.php';
+    require_once __DIR__ . '/../Controllers/ProductController.php';
     $controller = new ProductController();
     $products = $controller->getTopThreeProducts();
     ?>
@@ -20,7 +20,7 @@
                 <?php foreach ($products as $row): ?>
                     <div class="col-12 col-md-4 col-lg-3 mb-5 mb-md-0">
                         <a class="product-item" href="cart.html">
-                            <img src="<?= '/Vibelane/Public/image/productsimages/' . htmlspecialchars($row['product_image']) ?>"
+                            <img src="<?= 'Public/image/productsimages/' . htmlspecialchars($row['product_image']) ?>"
                                 class="img-fluid product-thumbnail">
                             <h3 class="product-title"><?= htmlspecialchars($row['name']) ?></h3>
                             <strong class="product-price">Rs.<?= htmlspecialchars($row['price']) ?></strong>

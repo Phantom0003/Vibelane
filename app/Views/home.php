@@ -24,6 +24,10 @@
     require_once __DIR__ . '/partials/production.php';
     require_once __DIR__ . '/partials/footer.php';
     ?>
+
+    <script src="Public/js/bootstrap.bundle.min.js"></script>
+    <script src="Public/js/tiny-slider.js"></script>
+    <script src="Public/js/custom.js"></script>
 </body>
 
 </html>

@@ -16,6 +16,10 @@ class ProductController
 
     }
 
+    public function getProductById($productId) {
+        return $this->productModel->getProductById($productId);
+    }
+
     public function getTopThreeProducts() {
         return $this->productModel->getTopThreeProducts();
     }

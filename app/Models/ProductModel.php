@@ -5,11 +5,21 @@ class ProductModel extends DBCOnnection
 {
     public function getAllProducts()
     {
-        $query = "SELECT name,price,product_image FROM products";
+        $query = "SELECT name,price,product_image,category FROM products";
         $stmt = $this->con->prepare($query);
         $stmt->execute();
         return $stmt->fetchAll(PDO::FETCH_ASSOC);
     }
+
+    public function getProductById($productId)
+    {
+        $query = "SELECT name, price, product_image, category FROM products WHERE productid = :productid";
+        $stmt = $this->con->prepare($query);
+        $stmt->execute(['productid' => $productId]);
+        return $stmt->fetch(PDO::FETCH_ASSOC);
+    }
+
+    
 
     public function getTopThreeProducts() {
         $query = "SELECT p.name, p.price, p.product_image, SUM(od.quality) AS total_sold
