@@ -1,57 +1,51 @@
 <!DOCTYPE html>
-<html lang='en'>
-
+<html lang="en">
 <head>
-    <meta charset="utf-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
-    <meta name="author" content="Untree.co">
-    <link rel="shortcut icon" href="../public/image/favicon.svg">
-    <meta name="description" content="" />
-    <meta name="keywords" content="bootstrap, bootstrap4" />
-
-    <link href="/../../public/css/bootstrap.min.css" rel="stylesheet">
-    <link href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0-beta3/css/all.min.css" rel="stylesheet">
-    <link href="/../../public/css/tiny-slider.css" rel="stylesheet">
-    <link href='/../../public/css/style.css' rel="stylesheet">
-    <title>Vibelane -- Street Wear</title>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Vibelane | Transparent Navbar</title>
+ 
+  <!-- Bootstrap 5 CSS -->
+  <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/css/bootstrap.min.css" rel="stylesheet">
+  <!-- Bootstrap Icons -->
+  <link href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.11.1/font/bootstrap-icons.css" rel="stylesheet">
+  <!-- Google Fonts -->
+  <link href="https://fonts.googleapis.com/css2?family=Plus+Jakarta+Sans:wght@400;500;600;700;800&display=swap" rel="stylesheet">
+  <!-- Custom CSS -->
+  <link rel="stylesheet" href="Public/css/header.css">
 </head>
-
 <body>
-    <!-- Start Header/Navigation -->
-    <nav class="custom-navbar navbar navbar-expand-md navbar-dark bg-dark" aria-label="Vibelane navigation bar">
 
-        <div class="container">
-            <a class="navbar-brand" href="index.html">Vibelane<span>.</span></a>
+  <!-- TRANSPARENT NAVBAR -->
+  <nav class="navbar navbar-expand-lg navbar-transparent">
+    <div class="container">
+      <a class="navbar-brand text-white" href="index.php">Vibelane<span>.</span></a>
 
-            <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarsVibelane"
-                aria-controls="navbarsVibelane" aria-expanded="false" aria-label="Toggle navigation">
-                <span class="navbar-toggler-icon"></span>
-            </button>
+      <button class="navbar-toggler navbar-dark" type="button" data-bs-toggle="collapse" data-bs-target="#transparentMenu">
+        <span class="navbar-toggler-icon"></span>
+      </button>
 
-            <div class="collapse navbar-collapse" id="navbarsVibelane">
-                <ul class="custom-navbar-nav navbar-nav ms-auto mb-2 mb-md-0">
-                    <li class="nav-item active">
-                        <a class="nav-link" href="index.php">Home</a>
-                    </li>
-                    <li><a class="nav-link" href="index.php?url=shop">Shop</a></li>
-                    <li><a class="nav-link" href="index.php?url=about">About us</a></li>
-                    <li><a class="nav-link" href="services.html">Services</a></li>
-                    <li><a class="nav-link" href="blog.html">Blog</a></li>
-                    <li><a class="nav-link" href="contact.html">Contact us</a></li>
-                </ul>
+      <div class="collapse navbar-collapse" id="transparentMenu">
+        <ul class="navbar-nav mx-auto">
+          <li class="nav-item"><a class="nav-link active" href="index.php">Home</a></li>
+          <li class="nav-item"><a class="nav-link" href="index.php?url=shop">Shop</a></li>
+          <li class="nav-item"><a class="nav-link" href="index.php?url=about">About us</a></li>
+          <li class="nav-item"><a class="nav-link" href="index.php?url=services">Services</a></li>
+          <li class="nav-item"><a class="nav-link" href="index.php?url=blog">Blog</a></li>
+          <li class="nav-item"><a class="nav-link" href="index.php?url=contact">Contact us</a></li>
+        </ul>
 
-                <!-- Updated Buttons Section -->
-                <ul class="custom-navbar-cta navbar-nav mb-2 mb-md-0 ms-5 align-items-center">
-                    <li class="me-3"><a class="nav-link" href="profile.html"><img src="Public/image/user.svg"
-                                alt="User Profile"></a></li>
-                    <li class="me-3"><a class="nav-link" href="cart.html"><img src="Public/image/cart.svg"
-                                alt="Cart"></a></li>
-                    <li class="me-2"><a class="btn btn-outline-light" href="index.php?url=login">Login</a></li>
-                    <li><a class="btn btn-primary" href="index.php?url=signup">Sign up</a></li>
-                </ul>
-            </div>
+        <div class="d-flex align-items-center gap-3 mt-3 mt-lg-0">
+          <a href="index.php?url=account" class="text-white fs-5"><i class="bi bi-person"></i></a>
+          <a href="index.php?url=cart" class="text-white fs-5 me-2"><i class="bi bi-bag"></i></a>
+          <a href="index.php?url=login" class="btn btn-dark-pill px-4">Login</a>
+          <a href="index.php?url=signup" class="btn btn-purple">Sign up</a>
         </div>
-    </nav>
-</body>
+      </div>
+    </div>
+  </nav>
 
+  <!-- Bootstrap JS -->
+  <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/bootstrap.bundle.min.js"></script>
+</body>
 </html>

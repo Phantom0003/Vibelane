@@ -32,4 +32,32 @@ class ProductModel extends DBCOnnection
         $stmt->execute();
         return $stmt;
     }
+
+    public function getCatagories() {
+        $query = "SELECT DISTINCT category FROM products ORDER BY category";
+        $stmt = $this->con->prepare($query);
+        $stmt->execute();
+        return $stmt->fetchall(PDO::FETCH_COLUMN);
+    }
+
+    public function searchProducts($searchTerm) {
+        $query = "SELECT productid, name, price, product_image, category
+                  FROM products
+                  WHERE name LIKE :searchTerm
+                  ORDER BY name";
+        $stmt = $this->con->prepare($query);
+        $stmt->execute(['searchTerm' => "%$searchTerm%"]);
+        return $stmt->fetchall(PDO::FETCH_ASSOC);
+    }
+    public function getProductsByCategory($category) {
+        $query = "SELECT productid, name, price, product_image, category
+                  FROM products
+                  WHERE category = :category
+                  ORDER BY name";
+        $stmt = $this->con->prepare($query);
+        $stmt->execute(['category' => $category]);
+        return $stmt->fetchall(PDO::FETCH_ASSOC);
+    }
 }
+
+    

@@ -23,4 +23,16 @@ class ProductController
     public function getTopThreeProducts() {
         return $this->productModel->getTopThreeProducts();
     }
+
+
+    public function getCatagories() {
+        return $this->productModel->getCatagories();
+    }
+
+    public function searchProducts($searchTerm) {
+        return $this->productModel->searchProducts($searchTerm);
+    }
+    public function getProductsByCategory($category) {
+        return $this->productModel->getProductsByCategory($category);
+    }
 }

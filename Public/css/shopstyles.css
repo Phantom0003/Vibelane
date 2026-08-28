@@ -20,6 +20,7 @@ body {
   position: relative;
   font-family: "Inter", sans-serif;
   font-weight: 400;
+  padding-top: 140px;
   line-height: 28px;
   color: #ffffff;
   font-size: 14px;
@@ -96,6 +97,7 @@ a:hover {
 .shop-hero h1 {
   font-size: 36px;
   letter-spacing: -0.5px;
+  padding-top: 15px;
 }
 
 .shop-filters .btn-filter {
