@@ -18,6 +18,10 @@
             --accent-purple: #8b2cf5;
             --accent-purple-hover: #771ee0;
             --text-muted: #a099b8;
+            --text-primary: #ffffff;
+            --text-secondary: #e2dcee;
+            /* Bright readable light grey */
+            --text-muted-bright: #9b9a9cfb;
         }
 
         body {
@@ -215,7 +219,7 @@
         <div class="text-center max-w-lg mx-auto mb-4">
             <span class="text-uppercase tracking-wide fw-bold fs-7" style="color: var(--accent-purple);">The Journal</span>
             <h1 class="display-5 fw-extrabold mt-1 mb-3">Culture & Insights</h1>
-            <p class="text-muted mx-auto" style="max-width: 520px;">
+            <p class="mx-auto" style="max-width: 520px; color:var(--text-muted-bright)">
                 Dive deep into streetwear design, heavyweight fabric engineering, and upcoming drop previews.
             </p>
         </div>
@@ -236,11 +240,11 @@
                 <div class="col-lg-5 p-4 p-lg-5">
                     <span class="badge bg-purple px-3 py-2 rounded-pill text-uppercase mb-3" style="background-color: var(--accent-purple); font-size: 0.75rem;">Deep Dive</span>
                     <h2 class="fw-bold mb-3">Why 400 GSM Heavyweight Terry is Dictating Modern Streetwear</h2>
-                    <p class="text-muted small mb-4">
+                    <p class="small mb-4 style="color:var(--text-muted-brigh)">
                         An exploration of silhouette retention, luxury hand-feel, and why fast fashion blends are losing ground to architectural cotton knits.
                     </p>
                     <div class="d-flex align-items-center justify-content-between pt-2 border-top border-secondary border-opacity-10">
-                        <span class="text-muted small"><i class="bi bi-clock me-1"></i> 6 min read • Aug 24, 2026</span>
+                        <span class="small style="color:var(--text-muted-bright)"><i class="bi bi-clock me-1"></i> 6 min read • Aug 24, 2026</span>
                         <a href="#" class="text-decoration-none fw-semibold" style="color: var(--accent-purple);">Read Story <i class="bi bi-arrow-right"></i></a>
                     </div>
                 </div>
@@ -258,7 +262,7 @@
                     <div class="blog-content">
                         <div class="blog-meta"><i class="bi bi-calendar3 me-1"></i> Aug 20, 2026 • 4 min read</div>
                         <h5 class="fw-bold mb-2">Inside Drop 01: Crafting the Cyber-Purple Palette</h5>
-                        <p class="text-muted small mb-4">A behind-the-scenes look into our acid-wash dye processes and signature gradient graphics.</p>
+                        <p class="small mb-4 style="color:(--text-muted-brigh)">A behind-the-scenes look into our acid-wash dye processes and signature gradient graphics.</p>
                         <a href="#" class="text-decoration-none fw-semibold mt-auto" style="color: var(--accent-purple);">Read Article <i class="bi bi-arrow-right"></i></a>
                     </div>
                 </div>
@@ -273,7 +277,7 @@
                     <div class="blog-content">
                         <div class="blog-meta"><i class="bi bi-calendar3 me-1"></i> Aug 15, 2026 • 3 min read</div>
                         <h5 class="fw-bold mb-2">How to Style Tactical Cargoes Across Seasons</h5>
-                        <p class="text-muted small mb-4">Balancing utility straps, oversized outerwear, and high-top sneakers seamlessly.</p>
+                        <p class="small mb-4 style="color:(--text-muted-bright)">Balancing utility straps, oversized outerwear, and high-top sneakers seamlessly.</p>
                         <a href="#" class="text-decoration-none fw-semibold mt-auto" style="color: var(--accent-purple);">Read Article <i class="bi bi-arrow-right"></i></a>
                     </div>
                 </div>
@@ -288,7 +292,7 @@
                     <div class="blog-content">
                         <div class="blog-meta"><i class="bi bi-calendar3 me-1"></i> Aug 10, 2026 • 5 min read</div>
                         <h5 class="fw-bold mb-2">The Evolution of the Drop-Shoulder Silhouette</h5>
-                        <p class="text-muted small mb-4">From 90s skate culture to high-fashion runways: why boxy cuts remain unrivaled.</p>
+                        <p class="small mb-4  style="color:(--text-muted-bright)">From 90s skate culture to high-fashion runways: why boxy cuts remain unrivaled.</p>
                         <a href="#" class="text-decoration-none fw-semibold mt-auto" style="color: var(--accent-purple);">Read Article <i class="bi bi-arrow-right"></i></a>
                     </div>
                 </div>

@@ -19,6 +19,10 @@
             --accent-purple: #8b2cf5;
             --accent-purple-hover: #771ee0;
             --text-muted: #a099b8;
+            --text-primary: #ffffff;
+            --text-secondary: #e2dcee;
+            /* Bright readable light grey */
+            --text-muted-bright: #9b9a9cfb;
         }
 
         body {
@@ -167,7 +171,7 @@
         <div class="text-center max-w-lg mx-auto mb-5">
             <span class="text-uppercase tracking-wide fw-bold fs-7" style="color: var(--accent-purple);">Get In Touch</span>
             <h1 class="display-5 fw-extrabold mt-1 mb-3">We’re Here to Help</h1>
-            <p class="text-muted mx-auto" style="max-width: 540px;">
+            <p class="mx-auto" style="max-width: 540px; color:var(--text-muted-bright)">
                 Have questions about your order, custom sizing, or drop releases? Reach out to our customer support crew anytime.
             </p>
         </div>

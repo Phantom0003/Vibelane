@@ -1,5 +1,6 @@
 <!DOCTYPE html>
 <html lang="en">
+
 <head>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
@@ -16,6 +17,10 @@
       --accent-purple: #8b2cf5;
       --accent-purple-hover: #771ee0;
       --text-muted: #a099b8;
+      --text-primary: #ffffff;
+      --text-secondary: #e2dcee;
+      /* Bright readable light grey */
+      --text-muted-bright: #9b9a9cfb;
     }
 
     body {
@@ -64,7 +69,8 @@
       background-color: var(--card-bg);
       border: 1px solid rgba(255, 255, 255, 0.08);
       border-radius: 20px;
-      padding: 1.5rem;
+      padding: 3rem;
+      margin-top: 25px;
     }
 
     /* Stats Grid */
@@ -129,24 +135,25 @@
     }
   </style>
 </head>
+
 <body>
- <?php include_once __DIR__ . '/partials/header.php'; ?>
+  <?php include_once __DIR__ . '/partials/header.php'; ?>
   <div class="profile-cover"></div>
 
   <div class="container">
     <div class="row">
-      
+
       <div class="col-lg-4 mb-4">
         <div class="profile-card text-center">
           <div class="profile-avatar-wrapper mb-3">
             <img src="https://images.unsplash.com/photo-1534528741775-53994a69daeb?auto=format&fit=crop&w=400&q=80" alt="Alex Morgan" class="profile-avatar">
           </div>
-          
+
           <span class="badge-vip mb-2 d-inline-block">VIP Collector</span>
           <h4 class="fw-bold mb-1">Alex Morgan</h4>
-          <p class="text-muted small mb-3">@alex_vibelane • Joined Jan 2026</p>
+          <p class="small mb-3 style="color:var(--text-muted-bright)">@alex_vibelane • Joined Jan 2026</p>
 
-          <p class="small text-muted mb-4">
+          <p class="small mb-4 style="color:var(--text-muted-bright)">
             Streetwear enthusiast, heavy cotton minimalist, and graphics collector based in NYC.
           </p>
 
@@ -179,14 +186,14 @@
       </div>
 
       <div class="col-lg-8">
-        
+
         <div class="profile-card mb-4">
           <div class="d-flex justify-content-between align-items-center mb-3">
             <h5 class="fw-bold m-0"><i class="bi bi-geo-alt me-2 text-purple"></i>Primary Address</h5>
             <a href="#" class="text-decoration-none small" style="color: var(--accent-purple);">Manage</a>
           </div>
           <p class="mb-1 fw-semibold">Alex Morgan</p>
-          <p class="text-muted small mb-0">742 Evergreen Terrace, Suite 4B, New York, NY 10001</p>
+          <p class=" small mb-0 style="color:var(--text-muted-bright)">742 Evergreen Terrace, Suite 4B, New York, NY 10001</p>
         </div>
 
         <div class="profile-card">
@@ -200,23 +207,11 @@
               <img src="https://images.unsplash.com/photo-1556905055-8f358a7a47b2?auto=format&fit=crop&w=150&q=80" alt="Hoodie" class="rounded" width="50" height="50" style="object-fit: cover;">
               <div>
                 <h6 class="fw-bold mb-0">Cyber-Purple Oversized Hoodie</h6>
-                <span class="text-muted small">Order #VL-8942 • Shipped</span>
+                <span class="style="color:var(--text-muted-bright) small">Order #VL-8942 • Shipped</span>
               </div>
             </div>
             <span class="fw-bold">$110.00</span>
           </div>
-
-          <div class="activity-item d-flex align-items-center justify-content-between">
-            <div class="d-flex align-items-center gap-3">
-              <img src="https://images.unsplash.com/photo-1521572267360-ee0c2909d518?auto=format&fit=crop&w=150&q=80" alt="Tee" class="rounded" width="50" height="50" style="object-fit: cover;">
-              <div>
-                <h6 class="fw-bold mb-0">Monochrome Acid Tee</h6>
-                <span class="text-muted small">Order #VL-8821 • Delivered</span>
-              </div>
-            </div>
-            <span class="fw-bold">$65.00</span>
-          </div>
-
         </div>
       </div>
 
@@ -225,4 +220,5 @@
 
   <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/bootstrap.bundle.min.js"></script>
 </body>
+
 </html>

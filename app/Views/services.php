@@ -20,7 +20,12 @@
             --accent-purple: #8b2cf5;
             --accent-purple-hover: #771ee0;
             --text-muted: #a099b8;
+            --text-primary: #ffffff;
+            --text-secondary: #e2dcee;
+            /* Bright readable light grey */
+            --text-muted-bright: #9b9a9cfb;
         }
+        
 
         body {
             background-color: var(--bg-dark);
@@ -127,7 +132,7 @@
         <div class="text-center max-w-lg mx-auto mb-5">
             <span class="text-uppercase tracking-wide fw-bold fs-7" style="color: var(--accent-purple);">Our Services</span>
             <h1 class="display-5 fw-extrabold mt-1 mb-3">Tailored for the Culture</h1>
-            <p class="text-muted mx-auto" style="max-width: 560px;">
+            <p class=" mx-auto" style="max-width: 560px; color: var(--text-muted-bright);">
                 From custom limited-edition prints to corporate capsule collections, we bring high-grade streetwear production and curation to your vision.
             </p>
         </div>
@@ -140,7 +145,7 @@
                         <i class="bi bi-palette"></i>
                     </div>
                     <h4 class="fw-bold mb-2">Custom Printing & DTG</h4>
-                    <p class="text-muted small mb-4">
+                    <p class="small mb-4" style="color: var(--text-muted-bright);">
                         High-density Direct-To-Garment (DTG) and high-build screen printing on 300+ GSM heavyweight blanks.
                     </p>
                     <a href="#" class="text-decoration-none fw-semibold small" style="color: var(--accent-purple);">Learn More <i class="bi bi-arrow-right"></i></a>
@@ -153,7 +158,7 @@
                         <i class="bi bi-box-seam"></i>
                     </div>
                     <h4 class="fw-bold mb-2">Bulk Capsule Drops</h4>
-                    <p class="text-muted small mb-4">
+                    <p class="small mb-4" style="color: var(--text-muted-bright);">
                         Tailored production runs for creator brands, music collectives, and private labels looking for premium fits.
                     </p>
                     <a href="#" class="text-decoration-none fw-semibold small" style="color: var(--accent-purple);">Learn More <i class="bi bi-arrow-right"></i></a>
@@ -166,7 +171,7 @@
                         <i class="bi bi-person-workspace"></i>
                     </div>
                     <h4 class="fw-bold mb-2">Private Styling</h4>
-                    <p class="text-muted small mb-4">
+                    <p class="small mb-4" style="color: var(--text-muted-bright);">
                         1-on-1 consultations with our in-house stylists to curate complete looks for events, tours, or media appearances.
                     </p>
                     <a href="#" class="text-decoration-none fw-semibold small" style="color: var(--accent-purple);">Learn More <i class="bi bi-arrow-right"></i></a>
@@ -179,7 +184,7 @@
                         <i class="bi bi-gem"></i>
                     </div>
                     <h4 class="fw-bold mb-2">VIP Vault Access</h4>
-                    <p class="text-muted small mb-4">
+                    <p class="small mb-4" style="color: var(--text-muted-bright);">
                         Exclusive early access passes for limited drop runs, archived samples, and unreleased prototype pieces.
                     </p>
                     <a href="#" class="text-decoration-none fw-semibold small" style="color: var(--accent-purple);">Learn More <i class="bi bi-arrow-right"></i></a>
@@ -192,7 +197,7 @@
                         <i class="bi bi-scissors"></i>
                     </div>
                     <h4 class="fw-bold mb-2">Bespoke Alterations</h4>
-                    <p class="text-muted small mb-4">
+                    <p class="small mb-4" style="color: var(--text-muted-bright);">
                         Precision garment restructuring, distress work, and custom patch application by master streetwear tailors.
                     </p>
                     <a href="#" class="text-decoration-none fw-semibold small" style="color: var(--accent-purple);">Learn More <i class="bi bi-arrow-right"></i></a>
@@ -205,7 +210,7 @@
                         <i class="bi bi-globe"></i>
                     </div>
                     <h4 class="fw-bold mb-2">Worldwide Logistics</h4>
-                    <p class="text-muted small mb-4">
+                    <p class="small mb-4" style="color: var(--text-muted-bright);">
                         End-to-end global fulfillment and localized customs processing for international collaborative collections.
                     </p>
                     <a href="#" class="text-decoration-none fw-semibold small" style="color: var(--accent-purple);">Learn More <i class="bi bi-arrow-right"></i></a>
@@ -222,7 +227,7 @@
                     <div class="step-card">
                         <span class="step-number">01</span>
                         <h6 class="fw-bold mb-2">Consultation</h6>
-                        <p class="text-muted small m-0">Submit your design specs or layout concept to our dev team.</p>
+                        <p class="small m-0" style="color: var(--text-muted-bright);">Submit your design specs or layout concept to our dev team.</p>
                     </div>
                 </div>
 
@@ -230,7 +235,7 @@
                     <div class="step-card">
                         <span class="step-number">02</span>
                         <h6 class="fw-bold mb-2">Sampling</h6>
-                        <p class="text-muted small m-0">We produce a physical sample to test weight, wash, and fit print clarity.</p>
+                        <p class="small m-0" style="color: var(--text-muted-bright);">We produce a physical sample to test weight, wash, and fit print clarity.</p>
                     </div>
                 </div>
 
@@ -238,7 +243,7 @@
                     <div class="step-card">
                         <span class="step-number">03</span>
                         <h6 class="fw-bold mb-2">Production</h6>
-                        <p class="text-muted small m-0">Once approved, full manufacturing begins with strict quality checks.</p>
+                        <p class="small m-0" style="color: var(--text-muted-bright);">Once approved, full manufacturing begins with strict quality checks.</p>
                     </div>
                 </div>
 
@@ -246,7 +251,7 @@
                     <div class="step-card">
                         <span class="step-number">04</span>
                         <h6 class="fw-bold mb-2">Delivery</h6>
-                        <p class="text-muted small m-0">Tracked worldwide express dispatch directly to your door.</p>
+                        <p class="small m-0" style="color: var(--text-muted-bright);">Tracked worldwide express dispatch directly to your door.</p>
                     </div>
                 </div>
 

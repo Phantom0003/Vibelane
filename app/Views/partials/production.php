@@ -1,6 +1,6 @@
 
     <?php
-    require_once __DIR__ . '/../Controllers/ProductController.php';
+    require_once __DIR__ . '/../../Controllers/ProductController.php';
     $controller = new ProductController();
     $products = $controller->getTopThreeProducts();
     ?>
