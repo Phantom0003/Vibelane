@@ -1,7 +1,9 @@
 <?php
-
+session_start();
 require_once __DIR__ .
     '/Config/DBConnection.php';
+require_once __DIR__ .
+    '/app/Controllers/UserController.php';
 
 // Get the requested path, strip query string and trailing slash
 $url = isset($_GET['url']) ? trim($_GET['url'], '/') : '';
@@ -17,19 +19,10 @@ switch ($url) {
     case 'shop':
         include_once __DIR__ . '/app/Views/shop.php';
         break;
-    case 'login':
-        include_once __DIR__ . '/app/Views/login.php';
-        break;
-    case 'signup':
-        include_once __DIR__ . '/app/Views/signup.php';
-        break;
-    case 'account':
-        include_once __DIR__ . '/app/Views/account.php';
-        break;
     case 'cart':
         include_once __DIR__ . '/app/Views/cart.php';
         break;
-    case 'contact' :
+    case 'contact':
         include_once __DIR__ . '/app/Views/contact.php';
         break;
     case 'services':
@@ -37,6 +30,40 @@ switch ($url) {
         break;
     case 'blog':
         include_once __DIR__ . '/app/Views/blog.php';
+        break;
+    case 'login':
+        if ($_SERVER['REQUEST_METHOD'] === 'POST') {
+            $authController = new AuthController();
+            $authController->login();
+        } else {
+            include_once __DIR__ . '/app/Views/login.php';
+        }
+        break;
+
+    case 'signup':
+        if ($_SERVER['REQUEST_METHOD'] === 'POST') {
+            $authController = new AuthController();
+            $authController->register(
+                $_POST['fullname'] ?? '',
+                $_POST['email'] ?? '',
+                $_POST['password'] ?? ''
+            );
+        } else {
+            include_once __DIR__ . '/app/Views/signup.php';
+        }
+        break;
+
+    case 'logout':
+        $authController = new AuthController();
+        $authController->logout();
+        break;
+
+    case 'account':
+        if (empty($_SESSION['user'])) {
+            header('Location: index.php?url=login');
+            exit;
+        }
+        include_once __DIR__ . '/app/Views/account.php';
         break;
     default:
         http_response_code(404);

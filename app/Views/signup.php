@@ -1,3 +1,13 @@
+<?php
+require_once __DIR__ . '/../Controllers/UserController.php';
+$controller = new AuthController();
+if (session_status() === PHP_SESSION_NONE) {
+    session_start();
+}
+$errors = $_SESSION['signup_errors'] ?? [];
+$old = $_SESSION['old_input'] ?? [];
+unset($_SESSION['signup_errors'], $_SESSION['old_input']);
+?>
 <!DOCTYPE html>
 <html lang="en">
 
@@ -32,25 +42,25 @@
                         <p class="text-white-50 small">Join Vibelane to access exclusive drops</p>
                     </div>
 
-                    <form action="#" method="POST">
+                    <form action="index.php?url=signup" method="POST">
                         <div class="mb-3">
                             <label class="form-label text-white-50 small fw-semibold">FULL NAME</label>
-                            <input type="text" class="form-control" placeholder="Alex Morgan" required>
+                            <input type="text" name="fullname" value="<?= htmlspecialchars($old['fullname'] ?? '') ?>" class="form-control" placeholder="Alex Morgan" required>
                         </div>
 
                         <div class="mb-3">
                             <label class="form-label text-white-50 small fw-semibold">EMAIL ADDRESS</label>
-                            <input type="email" class="form-control" placeholder="alex@vibelane.com" required>
+                            <input type="email" name="email" value="<?= htmlspecialchars($old['email'] ?? '') ?>" class="form-control" placeholder="alex@vibelane.com" required>
                         </div>
 
                         <div class="mb-3">
                             <label class="form-label text-white-50 small fw-semibold">PASSWORD</label>
-                            <input type="password" class="form-control" placeholder="••••••••" required>
+                            <input type="password" name="password"  class="form-control" placeholder="••••••••" required>
                         </div>
 
                         <div class="mb-3">
                             <label class="form-label text-white-50 small fw-semibold">CONFIRM PASSWORD</label>
-                            <input type="password" class="form-control" placeholder="••••••••" required>
+                            <input type="password" name="confirm_password"  class="form-control" placeholder="••••••••" required>
                         </div>
 
                         <div class="form-check mb-4">
@@ -65,7 +75,7 @@
 
                     <div class="text-center mt-4 pt-3 border-top border-secondary border-opacity-25">
                         <p class="text-white-50 small mb-0">Already have an account? 
-                            <a href="login.html" class="text-white fw-bold text-decoration-none ms-1">Log in</a>
+                            <a href="index.php?url=login" class="text-white fw-bold text-decoration-none ms-1">Log in</a>
                         </p>
                     </div>
                 </div>

@@ -1,3 +1,18 @@
+<?php
+if (session_status() === PHP_SESSION_NONE) {
+    session_start();
+}
+
+
+// Extra safety net — index.php should already redirect if not logged in
+if (empty($_SESSION['user'])) {
+    header('Location: index.php?url=login');
+    exit;
+}
+$currentUser = $_SESSION['user'];
+
+?>
+
 <!DOCTYPE html>
 <html lang="en">
 
@@ -5,135 +20,11 @@
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   <title>Vibelane | Profile</title>
-  <link rel="shortcut icon" href="Public/image/favicon.svg">
   <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/css/bootstrap.min.css" rel="stylesheet">
   <link href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.11.1/font/bootstrap-icons.css" rel="stylesheet">
   <link href="https://fonts.googleapis.com/css2?family=Plus+Jakarta+Sans:wght@400;500;600;700;800&display=swap" rel="stylesheet">
-
-  <style>
-    :root {
-      --bg-dark: #0c0516;
-      --card-bg: #140b24;
-      --accent-purple: #8b2cf5;
-      --accent-purple-hover: #771ee0;
-      --text-muted: #a099b8;
-      --text-primary: #ffffff;
-      --text-secondary: #e2dcee;
-      /* Bright readable light grey */
-      --text-muted-bright: #9b9a9cfb;
-    }
-
-    body {
-      background-color: var(--bg-dark);
-      color: #ffffff;
-      font-family: 'Plus Jakarta Sans', sans-serif;
-      padding-bottom: 4rem;
-    }
-
-    /* Cover Banner */
-    .profile-cover {
-      height: 240px;
-      background: linear-gradient(135deg, #1e0936 0%, #8b2cf5 100%);
-      border-radius: 0 0 24px 24px;
-      position: relative;
-    }
-
-    /* Profile Header Layout */
-    .profile-avatar-wrapper {
-      position: relative;
-      margin-top: -75px;
-    }
-
-    .profile-avatar {
-      width: 150px;
-      height: 150px;
-      border-radius: 50%;
-      border: 5px solid var(--bg-dark);
-      object-fit: cover;
-      background-color: var(--card-bg);
-    }
-
-    .badge-vip {
-      background: linear-gradient(45deg, #8b2cf5, #d69eff);
-      color: #fff;
-      font-weight: 700;
-      font-size: 0.75rem;
-      padding: 0.35rem 0.75rem;
-      border-radius: 50px;
-      text-transform: uppercase;
-      letter-spacing: 0.5px;
-    }
-
-    /* Card Styling */
-    .profile-card {
-      background-color: var(--card-bg);
-      border: 1px solid rgba(255, 255, 255, 0.08);
-      border-radius: 20px;
-      padding: 3rem;
-      margin-top: 25px;
-    }
-
-    /* Stats Grid */
-    .stat-box {
-      background: rgba(255, 255, 255, 0.03);
-      border: 1px solid rgba(255, 255, 255, 0.05);
-      border-radius: 14px;
-      padding: 1rem;
-      text-align: center;
-    }
-
-    .stat-value {
-      font-size: 1.5rem;
-      font-weight: 800;
-      color: #fff;
-    }
-
-    .stat-label {
-      color: var(--text-muted);
-      font-size: 0.85rem;
-      margin: 0;
-    }
-
-    /* Buttons */
-    .btn-purple {
-      background-color: var(--accent-purple);
-      color: #fff;
-      font-weight: 600;
-      border-radius: 50px;
-      padding: 0.6rem 1.5rem;
-      border: none;
-      transition: all 0.3s ease;
-    }
-
-    .btn-purple:hover {
-      background-color: var(--accent-purple-hover);
-      color: #fff;
-    }
-
-    .btn-dark-pill {
-      background-color: rgba(255, 255, 255, 0.08);
-      color: #fff;
-      font-weight: 600;
-      border-radius: 50px;
-      padding: 0.6rem 1.5rem;
-      border: 1px solid rgba(255, 255, 255, 0.1);
-    }
-
-    .btn-dark-pill:hover {
-      background-color: rgba(255, 255, 255, 0.15);
-      color: #fff;
-    }
-
-    /* Activity List */
-    .activity-item {
-      padding: 1rem 0;
-      border-bottom: 1px solid rgba(255, 255, 255, 0.05);
-    }
-
-    .activity-item:last-child {
-      border-bottom: none;
-    }
-  </style>
+  <link href="Public/css/account.css" rel="stylesheet">
+  <link href="Public/image/favicon.svg"  rel="shortcut icon">
 </head>
 
 <body>
@@ -150,12 +41,8 @@
           </div>
 
           <span class="badge-vip mb-2 d-inline-block">VIP Collector</span>
-          <h4 class="fw-bold mb-1">Alex Morgan</h4>
-          <p class="small mb-3 style="color:var(--text-muted-bright)">@alex_vibelane • Joined Jan 2026</p>
-
-          <p class="small mb-4 style="color:var(--text-muted-bright)">
-            Streetwear enthusiast, heavy cotton minimalist, and graphics collector based in NYC.
-          </p>
+          <h4 class="fw-bold mb-1"><?php echo htmlspecialchars($currentUser['fullname']); ?></h4>
+          <p class="small mb-3" style="color:var(--text-muted-bright)">@<?php echo htmlspecialchars($currentUser['username']); ?> • Joined Jan 2026</p>
 
           <div class="d-flex justify-content-center gap-2 mb-4">
             <button class="btn btn-purple btn-sm px-4">Edit Profile</button>

@@ -1,10 +1,17 @@
+<?php
+if (session_status() === PHP_SESSION_NONE) {
+  session_start();
+}
+$isLoggedIn = !empty($_SESSION['user']);
+?>
 <!DOCTYPE html>
 <html lang="en">
+
 <head>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   <title>Vibelane | Transparent Navbar</title>
- 
+
   <!-- Bootstrap 5 CSS -->
   <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/css/bootstrap.min.css" rel="stylesheet">
   <!-- Bootstrap Icons -->
@@ -14,6 +21,7 @@
   <!-- Custom CSS -->
   <link rel="stylesheet" href="Public/css/header.css">
 </head>
+
 <body>
 
   <!-- TRANSPARENT NAVBAR -->
@@ -36,10 +44,14 @@
         </ul>
 
         <div class="d-flex align-items-center gap-3 mt-3 mt-lg-0">
-          <a href="index.php?url=account" class="text-white fs-5"><i class="bi bi-person"></i></a>
-          <a href="index.php?url=cart" class="text-white fs-5 me-2"><i class="bi bi-bag"></i></a>
-          <a href="index.php?url=login" class="btn btn-dark-pill px-4">Login</a>
-          <a href="index.php?url=signup" class="btn btn-purple">Sign up</a>
+          <?php if ($isLoggedIn): ?>
+            <a href="index.php?url=account" class="text-white fs-5"><i class="bi bi-person"></i></a>
+            <a href="index.php?url=cart" class="text-white fs-5 me-2"><i class="bi bi-bag"></i></a>
+            <a href="index.php?url=logout" class="btn btn-dark-pill px-4">Log out</a>
+          <?php else: ?>
+            <a href="index.php?url=login" class="btn btn-dark-pill px-4">Login</a>
+            <a href="index.php?url=signup" class="btn btn-purple">Sign up</a>
+          <?php endif; ?>
         </div>
       </div>
     </div>
@@ -48,4 +60,5 @@
   <!-- Bootstrap JS -->
   <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/bootstrap.bundle.min.js"></script>
 </body>
+
 </html>

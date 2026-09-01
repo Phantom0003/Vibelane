@@ -1,3 +1,11 @@
+<?php
+if (session_status() === PHP_SESSION_NONE) {
+    session_start();
+}
+$errors = $_SESSION['login_errors'] ?? [];
+$old = $_SESSION['old_input'] ?? [];
+unset($_SESSION['login_errors'], $_SESSION['old_input']);
+?>
 <!DOCTYPE html>
 <html lang='en'>
 
@@ -33,11 +41,20 @@
                         <h2 class="section-title fw-bold mb-1">Welcome Back</h2>
                         <p class="text-white-50 small">Enter your credentials to access your account</p>
                     </div>
+                    <?php if (!empty($errors)): ?>
+                        <div class="alert alert-danger">
+                            <ul class="mb-0 ps-3">
+                                <?php foreach ($errors as $error): ?>
+                                    <li><?= htmlspecialchars($error) ?></li>
+                                <?php endforeach; ?>
+                            </ul>
+                        </div>
+                    <?php endif; ?>
 
-                    <form action="#" method="POST">
+                    <form action="index.php?url=login" method="POST">
                         <div class="mb-3">
                             <label class="form-label text-white-50 small fw-semibold">EMAIL ADDRESS</label>
-                            <input type="email" class="form-control" placeholder="alex@vibelane.com" required>
+                            <input type="email" name="email" value="<?= htmlspecialchars($old['email'] ?? '') ?>" class="form-control" placeholder="alex@vibelane.com" required>
                         </div>
 
                         <div class="mb-3">
@@ -45,7 +62,7 @@
                                 <label class="form-label text-white-50 small fw-semibold">PASSWORD</label>
                                 <a href="#" class="small text-decoration-none forgot-password">Forgot?</a>
                             </div>
-                            <input type="password" class="form-control" placeholder="••••••••" required>
+                            <input type="password" name="password" value="<?= htmlspecialchars($old['password'] ?? '') ?>" class="form-control" placeholder="••••••••" required>
                         </div>
 
                         <div class="form-check mb-4">
@@ -60,7 +77,7 @@
 
                     <div class="text-center mt-4 pt-3 border-top border-secondary border-opacity-25">
                         <p class="text-white-50 small mb-0">Don't have an account? 
-                            <a href="signup.html" class="text-white fw-bold text-decoration-none ms-1">Sign up</a>
+                            <a href="index.php?url=signup" class="text-white fw-bold text-decoration-none ms-1">Sign up</a>
                         </p>
                     </div>
                 </div>
