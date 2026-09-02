@@ -1,0 +1,270 @@
+/*
+* Vibelane - Add Address Page Stylesheet
+*/
+@import url("https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800&display=swap");
+
+:root {
+  --primary-colour: #6200B3;
+  --secondary-colour: #8B2BE2;
+  --gradient: #C299FA;
+  --background: #14001F;
+  --card-bg: #210330;
+  --card-border: #380a52;
+}
+
+/* ==========================================
+   Base & Typography
+   ========================================== */
+body {
+  overflow-x: hidden;
+  position: relative;
+  font-family: "Inter", sans-serif;
+  font-weight: 400;
+  line-height: 28px;
+  color: #ffffff;
+  font-size: 14px;
+  padding-top: 80px; /* Adjust this value based on your header height */
+  background-color: var(--background);
+}
+
+a {
+  text-decoration: none;
+  transition: all 0.3s ease;
+  color: var(--primary-colour);
+}
+
+a:hover {
+  color: var(--secondary-colour);
+}
+
+/* ==========================================
+   Navigation Bar
+   ========================================== */
+.custom-navbar {
+  background: var(--background) !important;
+  padding-top: 20px;
+  padding-bottom: 20px;
+}
+
+.custom-navbar .navbar-brand {
+  font-size: 32px;
+  font-weight: 600;
+  color: #ffffff !important;
+}
+
+.custom-navbar .navbar-brand > span {
+  color: var(--secondary-colour);
+  opacity: 0.8;
+}
+
+.custom-navbar .navbar-toggler {
+  border-color: transparent;
+}
+
+.custom-navbar .navbar-toggler:active,
+.custom-navbar .navbar-toggler:focus {
+  box-shadow: none;
+  outline: none;
+}
+
+@media (min-width: 992px) {
+  .custom-navbar .custom-navbar-nav li {
+    margin-left: 15px;
+    margin-right: 15px;
+  }
+}
+
+.custom-navbar .custom-navbar-nav li a {
+  font-weight: 500;
+  color: #ffffff !important;
+  opacity: 0.6;
+  transition: all 0.3s ease;
+  position: relative;
+}
+
+@media (min-width: 768px) {
+  .custom-navbar .custom-navbar-nav li a:before {
+    content: "";
+    position: absolute;
+    bottom: 0;
+    left: 8px;
+    right: 8px;
+    background: var(--secondary-colour);
+    height: 3px;
+    opacity: 1;
+    visibility: visible;
+    width: 0;
+    transition: all 0.15s ease-out;
+  }
+}
+
+.custom-navbar .custom-navbar-nav li a:hover {
+  opacity: 1;
+}
+
+.custom-navbar .custom-navbar-nav li a:hover:before {
+  width: calc(100% - 16px);
+}
+
+.custom-navbar .custom-navbar-cta {
+  margin-left: 0 !important;
+  display: flex;
+  flex-direction: row;
+  align-items: center;
+}
+
+@media (min-width: 768px) {
+  .custom-navbar .custom-navbar-cta {
+    margin-left: 40px !important;
+  }
+}
+
+/* ==========================================
+   Buttons
+   ========================================== */
+.btn {
+  font-weight: 600;
+  padding: 12px 30px;
+  border-radius: 30px;
+  color: #ffffff;
+  background: #2f2f2f;
+  border-color: #2f2f2f;
+  transition: all 0.3s ease;
+}
+
+.btn:hover {
+  color: #ffffff;
+  background: #222222;
+  border-color: #222222;
+}
+
+.btn:active,
+.btn:focus {
+  outline: none !important;
+  box-shadow: none;
+}
+
+.btn.btn-primary {
+  background: var(--primary-colour);
+  border-color: var(--primary-colour);
+}
+
+.btn.btn-primary:hover {
+  background: var(--secondary-colour);
+  border-color: var(--secondary-colour);
+  box-shadow: 0 8px 20px rgba(139, 43, 226, 0.35);
+  transform: translateY(-2px);
+}
+
+.btn.btn-secondary {
+  color: #ffffff;
+  background: var(--secondary-colour);
+  border-color: var(--secondary-colour);
+}
+
+.btn.btn-secondary:hover {
+  background: var(--primary-colour);
+  border-color: var(--primary-colour);
+}
+
+.btn-sm {
+  padding: 8px 20px !important;
+  font-size: 13px !important;
+}
+
+/* ==========================================
+   Address Card & Form Inputs
+   ========================================== */
+.address-card {
+  background: var(--card-bg);
+  border: 1px solid var(--card-border);
+  border-radius: 24px;
+  box-shadow: 0 15px 35px rgba(0, 0, 0, 0.5);
+  transition: transform 0.3s ease, box-shadow 0.3s ease;
+}
+
+.address-card:hover {
+  border-color: rgba(139, 43, 226, 0.5);
+  box-shadow: 0 20px 40px rgba(98, 0, 179, 0.25);
+}
+
+.address-card .section-title {
+  color: #ffffff;
+  letter-spacing: -0.5px;
+}
+
+.address-card label {
+  font-size: 11px;
+  letter-spacing: 0.8px;
+  text-transform: uppercase;
+  color: rgba(255, 255, 255, 0.6);
+  margin-bottom: 6px;
+}
+
+.address-card .form-control,
+.address-card .form-select {
+  height: 50px;
+  border-radius: 30px;
+  font-family: "Inter", sans-serif;
+  background-color: var(--background) !important;
+  color: #ffffff !important;
+  border: 1px solid var(--card-border);
+  padding: 12px 20px;
+  transition: all 0.3s ease;
+}
+
+.address-card .form-select {
+  background-image: url("data:image/svg+xml,%3csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 16 16'%3e%3cpath fill='none' stroke='%23C299FA' stroke-linecap='round' stroke-linejoin='round' stroke-width='2' d='m2 5 6 6 6-6'/%3e%3c/svg%3e");
+}
+
+.address-card .form-control:focus,
+.address-card .form-select:focus {
+  outline: none;
+  border-color: var(--secondary-colour);
+  box-shadow: 0 0 12px rgba(139, 43, 226, 0.35) !important;
+}
+
+.address-card .form-control::placeholder {
+  color: rgba(255, 255, 255, 0.4);
+  font-size: 14px;
+}
+
+/* Custom Radios & Checkboxes */
+.address-card .form-check-input {
+  background-color: var(--background);
+  border: 1px solid var(--card-border);
+  width: 18px;
+  height: 18px;
+  cursor: pointer;
+}
+
+.address-card .form-check-input:checked {
+  background-color: var(--primary-colour);
+  border-color: var(--primary-colour);
+}
+
+.address-card .form-check-input:focus {
+  box-shadow: 0 0 8px rgba(139, 43, 226, 0.4);
+}
+
+/* Back Button */
+.address-card .btn-back {
+  color: rgba(255, 255, 255, 0.6);
+  font-size: 13px;
+  font-weight: 500;
+  transition: all 0.3s ease;
+}
+
+.address-card .btn-back:hover {
+  color: var(--gradient);
+  transform: translateX(-4px);
+}
+
+/* ==========================================
+   Footer Section
+   ========================================== */
+.footer-section {
+  padding: 30px 0;
+  background: var(--background);
+  border-top: 1px solid var(--card-border);
+}

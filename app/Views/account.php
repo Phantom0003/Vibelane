@@ -1,16 +1,18 @@
 <?php
 if (session_status() === PHP_SESSION_NONE) {
-    session_start();
+  session_start();
 }
-
 
 // Extra safety net — index.php should already redirect if not logged in
 if (empty($_SESSION['user'])) {
-    header('Location: index.php?url=login');
-    exit;
+  header('Location: index.php?url=login');
+  exit;
 }
 $currentUser = $_SESSION['user'];
 
+require_once __DIR__ . '/../Models/AddressModel.php';
+$addressModel = new AddressModel();
+$address = $addressModel->getAddressByUserId($currentUser['id']);
 ?>
 
 <!DOCTYPE html>
@@ -24,7 +26,7 @@ $currentUser = $_SESSION['user'];
   <link href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.11.1/font/bootstrap-icons.css" rel="stylesheet">
   <link href="https://fonts.googleapis.com/css2?family=Plus+Jakarta+Sans:wght@400;500;600;700;800&display=swap" rel="stylesheet">
   <link href="Public/css/account.css" rel="stylesheet">
-  <link href="Public/image/favicon.svg"  rel="shortcut icon">
+  <link href="Public/image/favicon.svg" rel="shortcut icon">
 </head>
 
 <body>
@@ -39,10 +41,6 @@ $currentUser = $_SESSION['user'];
           <div class="profile-avatar-wrapper mb-3">
             <img src="https://images.unsplash.com/photo-1534528741775-53994a69daeb?auto=format&fit=crop&w=400&q=80" alt="Alex Morgan" class="profile-avatar">
           </div>
-
-          <span class="badge-vip mb-2 d-inline-block">VIP Collector</span>
-          <h4 class="fw-bold mb-1"><?php echo htmlspecialchars($currentUser['fullname']); ?></h4>
-          <p class="small mb-3" style="color:var(--text-muted-bright)">@<?php echo htmlspecialchars($currentUser['username']); ?> • Joined Jan 2026</p>
 
           <div class="d-flex justify-content-center gap-2 mb-4">
             <button class="btn btn-purple btn-sm px-4">Edit Profile</button>
@@ -77,28 +75,41 @@ $currentUser = $_SESSION['user'];
         <div class="profile-card mb-4">
           <div class="d-flex justify-content-between align-items-center mb-3">
             <h5 class="fw-bold m-0"><i class="bi bi-geo-alt me-2 text-purple"></i>Primary Address</h5>
-            <a href="#" class="text-decoration-none small" style="color: var(--accent-purple);">Manage</a>
+            <a href="index.php?url=address" class="text-decoration-none small" style="color: var(--accent-purple);">
+              <?= $address ? 'Edit' : 'Add' ?>
+            </a>
           </div>
-          <p class="mb-1 fw-semibold">Alex Morgan</p>
-          <p class=" small mb-0 style="color:var(--text-muted-bright)">742 Evergreen Terrace, Suite 4B, New York, NY 10001</p>
+          <?php if ($address): ?>
+            <p class="mb-1 fw-semibold"><?= htmlspecialchars($address['full_name']) ?></p>
+            <p class="small mb-0" style="color:var(--text-muted-bright)">
+              <?= htmlspecialchars($address['address_line']) ?>, <?= htmlspecialchars($address['city']) ?>,
+              <?= htmlspecialchars($address['state']) ?> <?= htmlspecialchars($address['postal_code']) ?>
+              &middot; <?= htmlspecialchars($address['phone']) ?>
+            </p>
+          <?php else: ?>
+            <p class="small mb-0" style="color:var(--text-muted-bright)">No address on file yet.</p>
+          <?php endif; ?>
         </div>
 
-        <div class="profile-card">
-          <div class="d-flex justify-content-between align-items-center mb-3">
-            <h5 class="fw-bold m-0"><i class="bi bi-bag-check me-2 text-purple"></i>Recent Purchases</h5>
-            <a href="#" class="text-decoration-none small" style="color: var(--accent-purple);">View All</a>
-          </div>
-
-          <div class="activity-item d-flex align-items-center justify-content-between">
-            <div class="d-flex align-items-center gap-3">
-              <img src="https://images.unsplash.com/photo-1556905055-8f358a7a47b2?auto=format&fit=crop&w=150&q=80" alt="Hoodie" class="rounded" width="50" height="50" style="object-fit: cover;">
-              <div>
-                <h6 class="fw-bold mb-0">Cyber-Purple Oversized Hoodie</h6>
-                <span class="style="color:var(--text-muted-bright) small">Order #VL-8942 • Shipped</span>
+        <div class="profile-card mb-4">
+          <h5 class="fw-bold mb-3"><i class="bi bi-bag-check me-2 text-purple"></i>Recent Purchases</h5>
+          <?php if (empty($recentItems)): ?>
+            <p class="small mb-0" style="color:var(--text-muted-bright)">No purchases yet.</p>
+          <?php else: ?>
+            <?php foreach ($recentItems as $item): ?>
+              <div class="d-flex align-items-center gap-3 mb-3">
+                <img src="Public/image/productsimages/<?= htmlspecialchars($item['product_image']) ?>"
+                  alt="<?= htmlspecialchars($item['name']) ?>" style="width:56px;height:56px;object-fit:cover;border-radius:8px;">
+                <div class="flex-grow-1">
+                  <p class="mb-0 fw-semibold"><?= htmlspecialchars($item['name']) ?></p>
+                  <p class="small mb-0" style="color:var(--text-muted-bright)">
+                    Qty <?= (int) $item['quality'] ?> &middot; Rs.<?= number_format((float) $item['price']) ?>
+                    &middot; <?= htmlspecialchars(date('M j, Y', strtotime($item['orderdate']))) ?>
+                  </p>
+                </div>
               </div>
-            </div>
-            <span class="fw-bold">$110.00</span>
-          </div>
+            <?php endforeach; ?>
+          <?php endif; ?>
         </div>
       </div>
 

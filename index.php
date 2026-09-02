@@ -4,6 +4,8 @@ require_once __DIR__ .
     '/Config/DBConnection.php';
 require_once __DIR__ .
     '/app/Controllers/UserController.php';
+require_once __DIR__ .
+    '/app/Controllers/AddressController.php';
 
 // Get the requested path, strip query string and trailing slash
 $url = isset($_GET['url']) ? trim($_GET['url'], '/') : '';
@@ -30,6 +32,16 @@ switch ($url) {
         break;
     case 'blog':
         include_once __DIR__ . '/app/Views/blog.php';
+        break; 
+    case 'address':
+        if (empty($_SESSION['user'])) {
+            header('Location: index.php?url=login');
+            exit;
+        } if ($_SERVER['REQUEST_METHOD'] === 'POST') {
+            (new AddressController())->save();
+        } else {
+            include_once __DIR__ . '/app/Views/partials/addressform.php';
+        }
         break;
     case 'login':
         if ($_SERVER['REQUEST_METHOD'] === 'POST') {

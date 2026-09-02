@@ -1,5 +1,5 @@
 <?php
-
+require_once __DIR__ . '/../../Config/DBConnection.php';
 class UserModel extends DBCOnnection
 {
     public function getUserByEmail($email)
@@ -11,19 +11,20 @@ class UserModel extends DBCOnnection
         return $stmt->fetch(PDO::FETCH_ASSOC);
     }
 
-    public function createUser($name, $email, $password)
+    public function createUser($name,  $email, $password)
     {
-        $query = "INSERT INTO users (fullname, email, password) VALUES(:fullname, :email, :password)";
+        $query = "INSERT INTO users (fullname,  email, password) VALUES(:fullname,  :email, :password)";
         $stmt = $this->con->prepare($query);
         $stmt->bindParam(':fullname', $name);
+        
         $stmt->bindParam(':email', $email);
         $stmt->bindParam(':password', $password);
         return $stmt->execute();
     }
 
-    public function getUserById($id)
+    public function getUserById($id, )
     {
-        $query = "SELECT * FROM users WHERE id = :id";
+        $query = "SELECT * FROM users WHERE id = :id ";
         $stmt = $this->con->prepare($query);
         $stmt->bindParam(':id', $id);
         $stmt->execute();

@@ -1,0 +1,155 @@
+/*
+* Vibelane - Shopping Cart Stylesheet
+*/
+@import url("https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800&display=swap");
+
+:root {
+  --primary-colour: #6200B3;
+  --secondary-colour: #8B2BE2;
+  --gradient: #C299FA;
+  --background: #14001F;
+  --card-bg: #210330;
+  --card-border: #380a52;
+}
+
+body {
+  font-family: "Inter", sans-serif;
+  background-color: var(--background);
+  color: #ffffff;
+  padding-top: 150px;
+}
+
+.text-gradient {
+  color: var(--gradient) !important;
+}
+
+/* Hero Section */
+.cart-hero h1 {
+  font-size: 34px;
+  letter-spacing: -0.5px;
+}
+
+/* Cart & Summary Cards */
+.cart-card,
+.cart-summary-card,
+.empty-cart-box {
+  background: var(--card-bg);
+  border: 1px solid var(--card-border);
+  box-shadow: 0 15px 35px rgba(0, 0, 0, 0.4);
+}
+
+/* Custom Table Styles */
+.custom-cart-table {
+  --bs-table-bg: transparent;
+  border-color: rgba(255, 255, 255, 0.08);
+}
+
+.custom-cart-table th {
+  font-size: 11px;
+  text-transform: uppercase;
+  letter-spacing: 0.8px;
+  color: rgba(255, 255, 255, 0.5);
+  border-bottom: 1px solid var(--card-border);
+}
+
+.custom-cart-table td {
+  padding: 16px 0;
+  border-bottom: 1px solid rgba(255, 255, 255, 0.05);
+}
+
+.cart-img-wrap {
+  width: 65px;
+  height: 65px;
+  background: rgba(0, 0, 0, 0.25);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  border: 1px solid var(--card-border);
+}
+
+.cart-img-wrap img {
+  max-height: 100%;
+  object-fit: contain;
+}
+
+/* Quantity Counter Component */
+.qty-counter {
+  width: 110px;
+  background: var(--background);
+  border: 1px solid var(--card-border);
+  border-radius: 20px;
+  padding: 2px 4px;
+}
+
+.qty-counter .btn-qty {
+  color: rgba(255, 255, 255, 0.7);
+  border: none;
+  background: transparent;
+  padding: 2px 8px;
+  font-size: 10px;
+  transition: color 0.2s ease;
+}
+
+.qty-counter .btn-qty:hover {
+  color: var(--gradient);
+}
+
+.qty-counter .qty-input {
+  background: transparent !important;
+  border: none !important;
+  color: #ffffff !important;
+  font-size: 13px;
+  font-weight: 600;
+  padding: 0;
+  box-shadow: none !important;
+}
+
+/* Hide Spin Buttons on Chrome, Safari, Edge, Opera */
+.qty-counter input[type=number]::-webkit-inner-spin-button, 
+.qty-counter input[type=number]::-webkit-outer-spin-button { 
+  -webkit-appearance: none;
+  margin: 0;
+}
+
+/* Remove Item Icon */
+.btn-remove-item {
+  transition: all 0.2s ease;
+}
+
+.btn-remove-item:hover {
+  color: #ff4d4d !important;
+  transform: scale(1.15);
+}
+
+/* Form Inputs */
+.promo-input {
+  height: 46px;
+  border-radius: 25px 0 0 25px;
+  background-color: var(--background) !important;
+  color: #ffffff !important;
+  border: 1px solid var(--card-border);
+  padding-left: 16px;
+}
+
+.promo-input:focus {
+  outline: none;
+  border-color: var(--secondary-colour);
+  box-shadow: none !important;
+}
+
+.promo-input + .btn {
+  border-radius: 0 25px 25px 0;
+}
+
+/* Navigation Links */
+.btn-back {
+  color: rgba(255, 255, 255, 0.6);
+  font-size: 13px;
+  font-weight: 500;
+  transition: all 0.3s ease;
+}
+
+.btn-back:hover {
+  color: var(--gradient);
+  transform: translateX(-4px);
+}

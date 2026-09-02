@@ -84,7 +84,7 @@ class AuthController
 
         $this->startSession($user);
 
-        header('Location: index.php?url=account');
+        header('Location: index.php?url=accountr');
     }
 
     public function logout()
