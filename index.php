@@ -33,6 +33,9 @@ switch ($url) {
     case 'blog':
         include_once __DIR__ . '/app/Views/blog.php';
         break; 
+    case 'singleproductpage':
+        include_once __DIR__ . '/app/Views/singleproductpage.php';
+        break;
     case 'address':
         if (empty($_SESSION['user'])) {
             header('Location: index.php?url=login');

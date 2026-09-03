@@ -1,0 +1,159 @@
+:root {
+      --bg-dark: #14001F;
+      --card-bg: #210330;
+      --card-border: #380a52;
+      --primary-colour: #6200B3;
+      --accent-purple: #8B2BE2;
+      --accent-purple-hover: #771ee0;
+      --text-main: #ffffff;
+      --text-sub: #e2dcee;
+    }
+
+    body {
+      background-color: var(--bg-dark);
+      color: var(--text-main);
+      font-family: 'Plus Jakarta Sans', sans-serif;
+    }
+
+    /* Navbar */
+    .custom-navbar {
+      background: var(--bg-dark);
+      border-bottom: 1px solid var(--card-border);
+    }
+    .navbar-brand {
+      font-weight: 800;
+      color: #fff !important;
+    }
+    .navbar-brand span {
+      color: var(--accent-purple);
+    }
+
+    /* Cards & Layout */
+    .product-card-container {
+      background: var(--card-bg);
+      border: 1px solid var(--card-border);
+      border-radius: 24px;
+      padding: 2rem;
+    }
+
+    /* Dress Image Gallery */
+    .main-img-wrap {
+      background: rgba(0, 0, 0, 0.25);
+      border: 1px solid var(--card-border);
+      border-radius: 18px;
+      padding: 1.5rem;
+      text-align: center;
+    }
+    .main-img-wrap img {
+      max-height: 500px;
+      width: 100%;
+      object-fit: cover;
+      border-radius: 12px;
+    }
+    .thumb-img {
+      width: 75px;
+      height: 95px;
+      object-fit: cover;
+      border-radius: 10px;
+      border: 1px solid var(--card-border);
+      cursor: pointer;
+      opacity: 0.6;
+      transition: all 0.2s ease;
+    }
+    .thumb-img.active, .thumb-img:hover {
+      opacity: 1;
+      border-color: var(--accent-purple);
+    }
+
+    /* Typography & High-Contrast Colors */
+    .product-title {
+      font-size: 2.2rem;
+      font-weight: 800;
+    }
+    .product-description, .spec-label {
+      color: var(--text-sub) !important;
+      line-height: 1.6;
+    }
+    .price-current {
+      font-size: 2rem;
+      font-weight: 800;
+      color: #ffffff;
+    }
+    .price-old {
+      font-size: 1.25rem;
+      color: rgba(255, 255, 255, 0.4);
+      text-decoration: line-through;
+    }
+    .badge-tag {
+      background: var(--primary-colour);
+      color: #fff;
+      font-weight: 600;
+      padding: 6px 14px;
+      border-radius: 20px;
+      font-size: 0.8rem;
+    }
+
+    /* Custom Dress Option Selectors */
+    .btn-size-option {
+      background: var(--bg-dark);
+      border: 1px solid var(--card-border);
+      color: #ffffff;
+      min-width: 45px;
+      height: 45px;
+      border-radius: 12px;
+      font-weight: 600;
+      transition: all 0.2s ease;
+    }
+    .btn-check:checked + .btn-size-option {
+      background-color: var(--accent-purple);
+      border-color: var(--accent-purple);
+      color: #ffffff;
+      box-shadow: 0 4px 12px rgba(139, 43, 226, 0.4);
+    }
+
+    .custom-select, .qty-input {
+      background-color: var(--bg-dark) !important;
+      border: 1px solid var(--card-border) !important;
+      color: #ffffff !important;
+      border-radius: 12px;
+      padding: 0.6rem 1rem;
+    }
+    .qty-input {
+      max-width: 80px;
+      text-align: center;
+    }
+
+    /* Action Buttons */
+    .btn-purple {
+      background-color: var(--accent-purple);
+      color: #fff;
+      font-weight: 600;
+      border-radius: 50px;
+      padding: 0.8rem 2rem;
+      border: none;
+      transition: all 0.3s ease;
+    }
+    .btn-purple:hover {
+      background-color: var(--accent-purple-hover);
+      color: #fff;
+      box-shadow: 0 8px 20px rgba(139, 43, 226, 0.4);
+    }
+    .btn-outline-custom {
+      background: transparent;
+      border: 1px solid var(--card-border);
+      color: #fff;
+      border-radius: 50px;
+      padding: 0.8rem 1.5rem;
+      transition: all 0.3s ease;
+    }
+    .btn-outline-custom:hover {
+      background: rgba(255, 255, 255, 0.08);
+      border-color: var(--accent-purple);
+      color: #fff;
+    }
+
+    /* Specifications Table */
+    .spec-table td {
+      padding: 0.6rem 0;
+      border-bottom: 1px solid rgba(255, 255, 255, 0.08);
+    }

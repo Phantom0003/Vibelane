@@ -92,7 +92,7 @@ if ($searchTerm !== '') {
                             </div>
                             <div class="product-info">
                                 <h3 class="product-title">
-                                    <a href="index.php?url=product&id=<?= (int) $product['productid'] ?>"><?= htmlspecialchars($product['name']) ?></a>
+                                    <a href="index.php?url=singleproductpage&id=<?= (int) $product['productid'] ?>"><?= htmlspecialchars($product['name']) ?></a>
                                 </h3>
                                 <span class="product-price">Rs.<?= htmlspecialchars(number_format((float) $product['price'])) ?></span>
                             </div>
